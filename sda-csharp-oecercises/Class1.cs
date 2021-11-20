@@ -12,9 +12,10 @@ namespace sda_csharp_oecercises{
         }
         public decimal GetValue() {
             decimal sum = 0; 
-            foreach  (OrderItem item in items{
+            foreach  (OrderItem item in items){
                 sum += item.GetValue();
             }
+            return sum;
         }
     }
 }
