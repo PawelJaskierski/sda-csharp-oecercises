@@ -8,9 +8,10 @@ namespace sda_csharp_oecercises {
     class LineSegment{
         public MyPoint Start { get; set; }
         public MyPoint End { get; set; }
-        public LineSegment(float sX, float sY, float eX, float eY) {
-            Start = new MyPoint(sX, sY);
-            End = new MyPoint(eX, eY);
+        public LineSegment(float[] start, float[] end)
+        {
+                Start = new MyPoint(start);
+                End = new MyPoint(end);
         }
         public LineSegment(MyPoint start, MyPoint end) {
             Start = start;
@@ -18,7 +19,12 @@ namespace sda_csharp_oecercises {
         }
 
         public float CalculateLength() {
-            return (float)Math.Sqrt((Math.Pow((Start.X - End.X), 2)+Math.Pow((Start.Y-End.Y),2)));
+            float answer = 0;
+            for(int i = 0; i<Start.Coordinates.Length; i++){
+                answer += (float)Math.Pow((Start.Coordinates[i] - End.Coordinates[i]),2);
+            }
+            return (float)Math.Sqrt(answer);
+                
         }
 
     }
